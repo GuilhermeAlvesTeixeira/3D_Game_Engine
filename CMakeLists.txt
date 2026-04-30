@@ -1,23 +1,27 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(LearnOpenGL)
+project(GameApp)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Inclui headers
-include_directories(include)
+# Adiciona a engine
+add_subdirectory(engine)
 
-# Arquivos fonte
-set(SOURCES
+# Executável principal
+add_executable(GameApp
     src/main.cpp
     src/glad.c
 )
 
-# Cria executável
-add_executable(Game Engine V1 ${SOURCES})
+# Includes globais (GLAD)
+target_include_directories(GameApp PRIVATE include)
 
-# Link com GLFW e OpenGL
+# OpenGL
 find_package(OpenGL REQUIRED)
-find_package(glfw3 REQUIRED)
 
-target_link_libraries(Game Engine V1 glfw OpenGL::GL)
+# Linkagem
+target_link_libraries(GameApp
+    Engine
+    OpenGL::GL
+)
