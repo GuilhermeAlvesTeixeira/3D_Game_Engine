@@ -7,10 +7,10 @@ int main() {
 
     engine.SetApplication(game);
 
-    if(engine.Init()) {
+    if(engine.Init(1280, 720)) {
         engine.Run();
     }
-    
+
     engine.Destroy();
     return 0;
 }

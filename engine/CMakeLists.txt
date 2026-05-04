@@ -18,6 +18,11 @@ add_library(Engine ${ENGINE_SOURCES})
 target_include_directories(Engine
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/source
+        ${CMAKE_SOURCE_DIR}/include 
+)
+
+target_sources(Engine PRIVATE
+    ${CMAKE_SOURCE_DIR}/src/glad.c
 )
 
 # GLFW (thirdparty - caminho corrigido)

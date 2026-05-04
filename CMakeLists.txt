@@ -11,13 +11,12 @@ add_subdirectory(engine)
 # Executável principal
 add_executable(GameApp
     src/main.cpp
-    src/glad.c
     src/Game.h
     src/Game.cpp
 )
 
 # Includes globais (GLAD)
-target_include_directories(GameApp PRIVATE include)
+include_directories(engine/source)
 
 # OpenGL
 find_package(OpenGL REQUIRED)
