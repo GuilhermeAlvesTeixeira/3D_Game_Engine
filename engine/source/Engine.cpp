@@ -5,7 +5,29 @@
 #include <iostream>
 
 namespace eng 
-{
+{       
+
+    Engine& Engine::GetInstance() {
+        static Engine instance;
+        return instance;
+    }
+
+    void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+        glViewport(0, 0, width, height);
+    }
+
+    void keyCallback(GLFWwindow* window, int key, int, int action, int) {
+        auto& inputManager = eng::Engine::GetInstance().GetInputManager();
+        
+        if (action == GLFW_PRESS) {
+            inputManager.SetKeyPressed(key, true);
+        }
+
+        else if (action == GLFW_RELEASE) {
+            inputManager.SetKeyPressed(key, false);
+        }
+    }
+
     bool Engine::Init(int width, int height) {
         if (!m_application) {
             return false;
@@ -26,6 +48,8 @@ namespace eng
             glfwTerminate();
             return false;
         }
+
+        glfwSetKeyCallback(m_window, keyCallback);
 
         glfwMakeContextCurrent(m_window);
 
@@ -78,9 +102,5 @@ namespace eng
 
     InputManager& Engine::GetInputManager() {
         return m_inputManager;
-    }
-
-    void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
-        glViewport(0, 0, width, height);
     }
 }
