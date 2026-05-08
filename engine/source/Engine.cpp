@@ -76,6 +76,10 @@ namespace eng
         return m_application.get();
     }
 
+    InputManager& Engine::GetInputManager() {
+        return m_inputManager;
+    }
+
     void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
         glViewport(0, 0, width, height);
     }

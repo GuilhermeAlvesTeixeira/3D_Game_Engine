@@ -9,6 +9,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(ENGINE_SOURCES
     source/Application.cpp
     source/Engine.cpp
+    source/input/InputManager.h
+    source/input/InputManager.cpp
 )
 
 # Library da engine

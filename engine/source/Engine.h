@@ -2,6 +2,8 @@
 #include <memory>
 #include <chrono>
 
+#include "input/InputManager.h"
+
 struct GLFWwindow;
 namespace eng 
 {   
