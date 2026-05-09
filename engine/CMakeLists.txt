@@ -11,6 +11,8 @@ set(ENGINE_SOURCES
     source/Engine.cpp
     source/input/InputManager.h
     source/input/InputManager.cpp
+    source/graphics/ShaderProgram.h 
+    source/graphics/ShaderProgram.cpp
 )
 
 # Library da engine
