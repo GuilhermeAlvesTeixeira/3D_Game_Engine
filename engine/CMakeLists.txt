@@ -13,6 +13,8 @@ set(ENGINE_SOURCES
     source/input/InputManager.cpp
     source/graphics/ShaderProgram.h 
     source/graphics/ShaderProgram.cpp
+    source/graphics/GraphicsAPI.h
+    source/graphics/GraphicsAPI.cpp
 )
 
 # Library da engine
