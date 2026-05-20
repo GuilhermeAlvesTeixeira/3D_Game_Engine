@@ -15,6 +15,8 @@ set(ENGINE_SOURCES
     source/graphics/ShaderProgram.cpp
     source/graphics/GraphicsAPI.h
     source/graphics/GraphicsAPI.cpp
+    source/render/Material.h 
+    source/render/Material.cpp
 )
 
 # Library da engine
