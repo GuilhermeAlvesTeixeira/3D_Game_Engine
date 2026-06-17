@@ -1,7 +1,7 @@
 #pragma once
 #include <eng.h>
 
-class Game: public eng::Application {
+class Game : public eng::Application {
     public:
         bool Init() override;
         void Update(float deltaTime) override;
@@ -9,5 +9,6 @@ class Game: public eng::Application {
 
     private:
         eng::Material m_material;
+        std::unique_ptr<eng::Mesh> m_mesh;
 
 };

@@ -3,6 +3,7 @@
 #include "graphics/GraphicsAPI.h"
 #include "graphics/ShaderProgram.h"
 #include "render/Material.h"
+#include "render/Mesh.h"
 
 namespace eng {
     std::shared_ptr<ShaderProgram> GraphicsAPI::CreateShaderProgram(const std::string& vertexSource, 
@@ -85,6 +86,20 @@ namespace eng {
             material->Bind();
         }
      }
+
+    void GraphicsAPI::BindMesh(Mesh* mesh) {
+        if(mesh) 
+        {
+            mesh -> Bind();
+        }
+    }
+    
+    void GraphicsAPI::DrawMesh(Mesh* mesh) {
+        if(mesh) 
+        {
+            mesh -> Draw();
+        }
+    }
 
 
 }
