@@ -55,7 +55,7 @@ namespace eng {
      }
 
 
-    GLuint CreateVertexBuffer(const std::vector<float>& vertices) {
+    GLuint GraphicsAPI::CreateVertexBuffer(const std::vector<float>& vertices) {
         GLuint VBO = 0;
         glGenBuffers(1, &VBO);
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -65,7 +65,7 @@ namespace eng {
         return VBO;
     }
 
-    GLuint CreateIndexBuffer(const std::vector<uint32_t>& indices) {
+    GLuint GraphicsAPI::CreateIndexBuffer(const std::vector<uint32_t>& indices) {
         GLuint EBO = 0;
         glGenBuffers(1, &EBO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
@@ -73,6 +73,14 @@ namespace eng {
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
         return EBO;
+    }
+
+    void GraphicsAPI::SetClearColor(float r, float g, float b, float a) {
+        glClearColor(r,g,b,a);
+    }
+    
+    void GraphicsAPI::ClearBuffers() {
+        glClear(GL_COLOR_BUFFER_BIT);
     }
 
      void GraphicsAPI::BindShaderProgram(ShaderProgram* shaderProgram) {
